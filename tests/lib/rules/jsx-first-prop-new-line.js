@@ -131,13 +131,13 @@ ruleTester.run('jsx-first-prop-new-line', rule, {
     {
       code: [
         '<Foo propOne="one"',
-        ' propTwo="two"',
+        '  propTwo="two"',
         '/>'
       ].join('\n'),
       output: [
         '<Foo',
         ' propOne="one"',
-        ' propTwo="two"',
+        '  propTwo="two"',
         '/>'
       ].join('\n'),
       options: ['always'],
