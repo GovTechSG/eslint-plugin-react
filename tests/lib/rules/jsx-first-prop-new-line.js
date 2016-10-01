@@ -120,6 +120,10 @@ ruleTester.run('jsx-first-prop-new-line', rule, {
   invalid: [
     {
       code: '<Foo prop="one" />',
+      output: [
+        '<Foo',
+        ' prop="one" />'
+      ].join('\n'),
       options: ['always'],
       errors: [{message: 'Property should be placed on a new line'}],
       parser: parserOptions
@@ -127,7 +131,13 @@ ruleTester.run('jsx-first-prop-new-line', rule, {
     {
       code: [
         '<Foo propOne="one"',
-        '  propTwo="two"',
+        ' propTwo="two"',
+        '/>'
+      ].join('\n'),
+      output: [
+        '<Foo',
+        ' propOne="one"',
+        ' propTwo="two"',
         '/>'
       ].join('\n'),
       options: ['always'],
@@ -138,6 +148,11 @@ ruleTester.run('jsx-first-prop-new-line', rule, {
       code: [
         '<Foo',
         ' propOne="one"',
+        ' propTwo="two"',
+        '/>'
+      ].join('\n'),
+      output: [
+        '<Foo propOne="one"',
         ' propTwo="two"',
         '/>'
       ].join('\n'),
